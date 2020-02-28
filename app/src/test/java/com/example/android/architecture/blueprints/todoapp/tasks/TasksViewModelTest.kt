@@ -73,8 +73,6 @@ class TasksViewModelTest {
     //non-boilerplate version
     @Test
     fun addNewTask_setsNewTaskEvent() {
-        // Given a fresh ViewModel
-        val tasksViewModel = TasksViewModel(tasksRepository)
 
         // When adding a new task
         tasksViewModel.addNewTask()
@@ -87,15 +85,11 @@ class TasksViewModelTest {
     @Test
     fun setFilterAllTasks_tasksAddViewVisible() {
 
-        // Given a fresh ViewModel
-        val taskViewModel = TasksViewModel(tasksRepository)
-
-
         // When the filter type is ALL_TASKS
-        taskViewModel.setFiltering(TasksFilterType.ALL_TASKS)
+        tasksViewModel.setFiltering(TasksFilterType.ALL_TASKS)
 
         // Then the "Add task" action is visible
-        assertThat(taskViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
+        assertThat(tasksViewModel.tasksAddViewVisible.getOrAwaitValue(), `is`(true))
     }
 
 }
