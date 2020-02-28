@@ -18,7 +18,6 @@ import com.example.android.architecture.blueprints.todoapp.ServiceLocator
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.TaskRepository
 import com.example.android.architecture.blueprints.todoapp.source.FakeAndroidTestRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
@@ -27,7 +26,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
-import timber.log.Timber
 
 @RunWith(AndroidJUnit4::class)
 @MediumTest
@@ -46,7 +44,7 @@ class TasksFragmentTest {
 
     @Test
     fun clickTask_navigateToDetailFragmentOne() {
-        runBlockingTest{
+        runBlockingTest {
             repository.saveTask(Task("TITLE1", "DESCRIPTION1", false, "id1"))
             repository.saveTask(Task("TITLE2", "DESCRIPTION2", true, "id2"))
 
